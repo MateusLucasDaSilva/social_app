@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
+import 'package:social_app/app/presentation/pages/home/controller/home_controller.dart';
 
 class BottomHomeWidget extends StatelessWidget {
-  const BottomHomeWidget({super.key});
+  final Function(HomeEnumType) onChangePage;
+  const BottomHomeWidget({super.key, required this.onChangePage});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,11 @@ class BottomHomeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () => onChangePage(HomeEnumType.home),
               icon: Icon(Icons.home),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => onChangePage(HomeEnumType.search),
               icon: Icon(Icons.search),
             ),
             Container(
@@ -50,11 +52,11 @@ class BottomHomeWidget extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => onChangePage(HomeEnumType.chat),
               icon: Icon(Icons.chat),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => onChangePage(HomeEnumType.profile),
               icon: Icon(Icons.person),
             ),
           ],

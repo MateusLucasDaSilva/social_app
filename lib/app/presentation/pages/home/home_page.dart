@@ -1,43 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
-import 'package:social_app/app/core/utils/widgets/posts/posts_widget.dart';
-import 'package:social_app/app/core/utils/widgets/title_text_widget.dart';
+import 'package:social_app/app/presentation/pages/home/controller/home_controller.dart';
 import 'package:social_app/app/presentation/pages/home/widgets/bottom_home_widget.dart';
-import 'package:social_app/app/presentation/pages/home/widgets/post_widget.dart';
+import 'package:social_app/app/presentation/pages/home/widgets/home_widget.dart';
+import 'package:social_app/app/presentation/pages/search/search_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final HomeController controller = HomeController();
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomHomeWidget(),
-      body: SingleChildScrollView(
-        child: Padding(
+    return ListenableBuilder(
+      listenable: controller,
+      builder: (context, child) => Scaffold(
+        bottomNavigationBar: BottomHomeWidget(
+          onChangePage: controller.onChangePage,
+        ),
+        body: Padding(
           padding: const EdgeInsets.all(AppSize.padding),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: PageView(
+            controller: controller.pageController,
             children: [
-              SizedBox(
-                height: MediaQuery.of(context).padding.top,
-              ),
-              TitleTextWidget(text: 'Descubra'),
-              SizedBox(
-                height: AppSize.padding,
-              ),
-              Text('O QUE HÁ DE NOVO HOJE'),
-              SizedBox(
-                height: AppSize.padding,
-              ),
-              PostWidget(),
-              SizedBox(
-                height: AppSize.padding,
-              ),
-              Text('NAVEGUE MAIS'),
-              SizedBox(
-                height: AppSize.padding,
-              ),
-              PostsWidget(),
+              HomeWidget(),
+              SearchPage(),
+              Placeholder(),
+              Placeholder(),
             ],
           ),
         ),
