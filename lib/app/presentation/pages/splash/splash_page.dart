@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/app/core/utils/constants/app_images.dart';
+import 'package:social_app/app/core/utils/constants/app_routes.dart';
+import 'package:social_app/app/core/utils/constants/app_size.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -48,26 +50,26 @@ class SplashPage extends StatelessWidget {
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).padding.bottom,
-                    top: 24,
+                    bottom: AppSize.padding + MediaQuery.of(context).padding.bottom,
+                    top: AppSize.padding,
+                    left: AppSize.padding,
+                    right: AppSize.padding,
                   ),
                   child: Row(
+                    spacing: 16,
                     children: [
-                      const SizedBox(width: 12),
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {},
-                          child: Text('Entrar'),
+                          onPressed: () => Navigator.pushNamed(context, NamedRoutes.login.route),
+                          child: Text('ENTRAR'),
                         ),
                       ),
-                      const SizedBox(width: 12),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Registrar'),
+                          onPressed: () => Navigator.pushNamed(context, NamedRoutes.signUp.route),
+                          child: Text('REGISTRAR'),
                         ),
                       ),
-                      const SizedBox(width: 12),
                     ],
                   ),
                 ),
