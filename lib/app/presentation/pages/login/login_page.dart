@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/app/core/utils/constants/app_routes.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
 import 'package:social_app/app/core/utils/widgets/inputs/input_email_widget.dart';
 import 'package:social_app/app/core/utils/widgets/inputs/input_password_widget.dart';
@@ -27,7 +28,7 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, NamedRoutes.home.route),
                 child: Text(
                   'ENTRAR',
                 ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_app/app/core/utils/constants/app_images.dart';
 import 'package:social_app/app/core/utils/constants/app_routes.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
+import 'package:social_app/app/core/utils/widgets/tiles/tile_widget.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -31,22 +32,7 @@ class SplashPage extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                ListTile(
-                  leading: Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage(
-                          AppImages.avatar,
-                        ),
-                      ),
-                    ),
-                  ),
-                  title: Text('Mateus Lucas'),
-                  subtitle: Text('@mateuslcs'),
-                ),
+                TileWidget(),
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.only(
