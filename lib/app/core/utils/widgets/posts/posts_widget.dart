@@ -22,8 +22,8 @@ class PostsWidget extends StatelessWidget {
     return GridView.count(
       crossAxisCount: 2,
       shrinkWrap: true,
-      crossAxisSpacing: 4,
-      mainAxisSpacing: 4,
+      crossAxisSpacing: 8,
+      mainAxisSpacing: 8,
       padding: EdgeInsets.zero,
       physics: NeverScrollableScrollPhysics(),
       children: posts
