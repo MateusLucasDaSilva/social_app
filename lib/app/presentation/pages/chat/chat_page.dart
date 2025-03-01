@@ -36,25 +36,27 @@ class _ChatPageState extends State<ChatPage> {
         title: Text(widget.chat.username),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Divider(),
-            Padding(
-              padding: EdgeInsets.all(AppSize.padding),
-              child: Column(
-                children: [
-                  ...conversation.messages.map(
-                    (e) => ConversationWidget(
-                      message: e,
-                      meImageAssert: conversation.meUrlAsset,
-                      otherImageAssert: conversation.otherUrlAsset,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Divider(),
+              Padding(
+                padding: EdgeInsets.all(AppSize.padding),
+                child: Column(
+                  children: [
+                    ...conversation.messages.map(
+                      (e) => ConversationWidget(
+                        message: e,
+                        meImageAssert: conversation.meUrlAsset,
+                        otherImageAssert: conversation.otherUrlAsset,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            )
-          ],
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
