@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/app/presentation/pages/splash/splash_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -11,7 +12,10 @@ class AppWidget extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(),
+      initialRoute: '/',
+      routes: {
+        '/': (_) => SplashPage(),
+      },
     );
   }
 }
