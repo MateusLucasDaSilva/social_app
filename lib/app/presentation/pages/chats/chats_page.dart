@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/app/core/utils/constants/app_routes.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
 import 'package:social_app/app/core/utils/constants/mocks.dart';
 import 'package:social_app/app/core/utils/widgets/title_text_widget.dart';
@@ -30,6 +31,7 @@ class ChatsPage extends StatelessWidget {
               final chat = Mocks.chats[index];
               return ListTile(
                 contentPadding: EdgeInsets.zero,
+                onTap: () => Navigator.pushNamed(context, NamedRoutes.chat.route, arguments: chat),
                 leading: Container(
                   height: 60,
                   width: 60,
