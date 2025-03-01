@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/app/core/utils/constants/app_size.dart';
+import 'package:social_app/app/presentation/pages/chats/chats_page.dart';
 import 'package:social_app/app/presentation/pages/home/controller/home_controller.dart';
 import 'package:social_app/app/presentation/pages/home/widgets/bottom_home_widget.dart';
 import 'package:social_app/app/presentation/pages/home/widgets/home_widget.dart';
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               HomeWidget(),
               SearchPage(),
-              Placeholder(),
+              ChatsPage(),
               Placeholder(),
             ],
           ),
