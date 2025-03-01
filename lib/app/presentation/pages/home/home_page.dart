@@ -4,6 +4,7 @@ import 'package:social_app/app/presentation/pages/chats/chats_page.dart';
 import 'package:social_app/app/presentation/pages/home/controller/home_controller.dart';
 import 'package:social_app/app/presentation/pages/home/widgets/bottom_home_widget.dart';
 import 'package:social_app/app/presentation/pages/home/widgets/home_widget.dart';
+import 'package:social_app/app/presentation/pages/profile/profile_page.dart';
 import 'package:social_app/app/presentation/pages/search/search_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
       builder: (context, child) => Scaffold(
         bottomNavigationBar: BottomHomeWidget(
           onChangePage: controller.onChangePage,
+          currentType: controller.currentHomeEnumType,
         ),
         body: Padding(
           padding: const EdgeInsets.all(AppSize.padding),
@@ -32,7 +34,7 @@ class _HomePageState extends State<HomePage> {
               HomeWidget(),
               SearchPage(),
               ChatsPage(),
-              Placeholder(),
+              ProfilePage(),
             ],
           ),
         ),

@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 class HomeController extends ChangeNotifier {
   PageController pageController = PageController();
+  HomeEnumType currentHomeEnumType = HomeEnumType.home;
+
+  void _changeCurrentHomeEnumType(HomeEnumType type) {
+    currentHomeEnumType = type;
+    notifyListeners();
+  }
 
   void onChangePage(HomeEnumType type) {
-    pageController.animateToPage(
-      type.index,
-      duration: Duration(milliseconds: 200),
-      curve: Curves.linear,
-    );
+    pageController.jumpToPage(type.index);
+    _changeCurrentHomeEnumType(type);
   }
 }
 

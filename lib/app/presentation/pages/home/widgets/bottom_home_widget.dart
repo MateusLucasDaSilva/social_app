@@ -4,7 +4,19 @@ import 'package:social_app/app/presentation/pages/home/controller/home_controlle
 
 class BottomHomeWidget extends StatelessWidget {
   final Function(HomeEnumType) onChangePage;
-  const BottomHomeWidget({super.key, required this.onChangePage});
+  final HomeEnumType currentType;
+  const BottomHomeWidget({
+    super.key,
+    required this.onChangePage,
+    required this.currentType,
+  });
+
+  Color? getColorIcon(HomeEnumType type) {
+    if (type == currentType) {
+      return Color(0xffFF00D6);
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +38,12 @@ class BottomHomeWidget extends StatelessWidget {
             IconButton(
               onPressed: () => onChangePage(HomeEnumType.home),
               icon: Icon(Icons.home),
+              color: getColorIcon(HomeEnumType.home),
             ),
             IconButton(
               onPressed: () => onChangePage(HomeEnumType.search),
               icon: Icon(Icons.search),
+              color: getColorIcon(HomeEnumType.search),
             ),
             Container(
               height: 40,
@@ -54,10 +68,12 @@ class BottomHomeWidget extends StatelessWidget {
             IconButton(
               onPressed: () => onChangePage(HomeEnumType.chat),
               icon: Icon(Icons.chat),
+              color: getColorIcon(HomeEnumType.chat),
             ),
             IconButton(
               onPressed: () => onChangePage(HomeEnumType.profile),
               icon: Icon(Icons.person),
+              color: getColorIcon(HomeEnumType.profile),
             ),
           ],
         ),
